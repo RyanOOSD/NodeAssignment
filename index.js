@@ -66,28 +66,28 @@ app.post(
             */
             
             // First name ust be alphabetical only, ignores specified special characters
-            body("firstname", "Invalid first name.").isAlpha("en-US", {ignore: "\s.-'"}),
+            body("firstname", "Invalid first name").isAlpha("en-US", {ignore: "\s.-'"}).isLength({max: 45}),
 
             // Last name must be alphabetical only, ignores specified special characters
-            body("lastname", "Invalid last name.").isAlpha("en-US", {ignore: "\s.-'"}),
+            body("lastname", "Invalid last name").isAlpha("en-US", {ignore: "\s.-'"}).isLength({max: 45}),
 
             // Email must be in valid email format
-            body("email", "Invalid email.").isEmail(),
+            body("email", "Invalid email").isEmail().isLength({max: 45}),
 
             // Phone numner must only contain numbers
-            body("phonenum", "Invalid phone number.").isNumeric(),
+            body("phonenum", "Invalid phone number").isNumeric().isLength({max: 10}),
 
             // City must be alphabetical only, ignores specified special characters
-            body("city", "Invalid city.").isAlpha("en-US", {ignore: "\s.-'"}),
+            body("city", "Invalid city").isAlpha("en-US", {ignore: "\s.-'"}).isLength({max: 45}),
 
             // Province must be alphabetical only, ignores spaces only
-            body("province", "Invalid province.").isAlpha("en-US", {ignore: "\s"}),
+            body("province", "Invalid province").isAlpha("en-US", {ignore: "\s"}).isLength({max: 45}),
 
             // Postal code must be alphanumeric, ignores spaces only
-            body("postalcode", "Invalid postal code.").isAlphanumeric("en-US", {ignore: "\s"}),
+            body("postalcode", "Invalid postal code").isAlphanumeric("en-US", {ignore: "\s"}).isLength({max: 7}),
 
             // Feedback must be alphanumeric, ignores specified special characters
-            body("feedback", "Invalid feedback.").isAlphanumeric("en-US", {ignore: "&!,\s.-'"}),
+            body("feedback", "Invalid feedback").isAlphanumeric("en-US", {ignore: "&!,\s.-'"}).isLength({max: 300}),
         ],
     ],
     async(req, res) => {
@@ -125,14 +125,14 @@ app.post(
     [
         [
             // Validate input on the edit page too
-            body("firstname", "Invalid first name").isAlpha("en-US", {ignore: "\s.-'"}),
-            body("lastname", "Invalid last name").isAlpha("en-US", {ignore: "\s.-'"}),
-            body("email", "Invalid email").isEmail(),
-            body("phonenum", "Invalid phone number").isNumeric(),
-            body("city", "Invalid city").isAlpha("en-US", {ignore: "\s.-'"}),
-            body("province", "Invalid province").isAlpha("en-US", {ignore: "\s"}),
-            body("postalcode", "Invalid postal code").isAlphanumeric("en-US", {ignore: "\s"}),
-            body("feedback", "Invalid feedback").isAlphanumeric("en-US", {ignore: "&!,\s.-'"}),
+            body("firstname", "Invalid first name").isAlpha("en-US", {ignore: "\s.-'"}).isLength({max: 45}),
+            body("lastname", "Invalid last name").isAlpha("en-US", {ignore: "\s.-'"}).isLength({max: 45}),
+            body("email", "Invalid email").isEmail().isLength({max: 45}),
+            body("phonenum", "Invalid phone number").isNumeric().isLength({max: 10}),
+            body("city", "Invalid city").isAlpha("en-US", {ignore: "\s.-'"}).isLength({max: 45}),
+            body("province", "Invalid province").isAlpha("en-US", {ignore: "\s"}).isLength({max: 45}),
+            body("postalcode", "Invalid postal code").isAlphanumeric("en-US", {ignore: "\s"}).isLength({max: 7}),
+            body("feedback", "Invalid feedback").isAlphanumeric("en-US", {ignore: "&!,\s.-'"}).isLength({max: 300}),
         ],
     ],
     async(req, res) => {
