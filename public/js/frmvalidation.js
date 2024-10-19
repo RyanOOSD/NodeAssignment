@@ -41,7 +41,7 @@ const phoneRegex = /^([0-9]{3})([0-9]{3})([0-9]{4})$/;
 Matches an alphabetical string that can also contain apostrophes, spaces, periods and dashes
 String can be a maximum length of 35 characters
 */
-const cityRegex = /^[a-zA-Z'\s.-]\s*{1,35}$/;
+const cityRegex = /^[A-Za-z'.\s-]{1,35}$/;
 
 /*
 Matches an alphanumeric string in the format of the Canadian postal code, using only valid letters
