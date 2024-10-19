@@ -1,0 +1,89 @@
+<!-- 
+Author: Ryan Angaangan
+Student ID: 000783037
+Date: October 17, 2024
+Course: CPRG 210 - Web Application Development
+Assignment: Node.js 
+-->
+
+<%- include("includes/header.ejs") %>
+
+    <h1 class="text-center pt-5">Contact Us</h1>
+    <p class="text-center">Please input your contact details below, and we will get in contact with you shortly!</p>
+    <p class="text-center">Feel free to browse our site feedback from our users below the form!</p>
+    <div class="container pb-3">
+        <form action="/add-contact" method="POST" onsubmit="return formValidation()" class="row g-0 needs-validation">
+            <div class="form-floating col-md-6">
+                <input type="text" name="firstname" class="form-control" id="floatingFirst" placeholder="John">
+                <label for="floatingFirst">First Name</label>
+            </div>
+            <div class="form-floating col-md-6">
+                <input type="text" name="lastname" class="form-control" id="floatingLast" placeholder="Doe">
+                <label for="floatingLast">Last Name</label>
+            </div>
+            <div class="form-floating col-md-12">
+                <input type="email" name="email" class="form-control" id="floatingEmail" placeholder="example@example.com">
+                <label for="floatingEmail">Email</label>
+            </div>
+            <div class="form-floating col-md-12">
+                <input type="text" name="phonenum" class="form-control" id="floatingPhone" placeholder="555-5555">
+                <label for="floatingPhone">Phone Number</label> 
+            </div>
+            <div class="form-floating col-md-4">
+                <input type="text" name="city" class="form-control" id="floatingCity" placeholder="Calgary">
+                <label for="floatingCity">City</label>
+            </div>
+            <div class="form-floating col-md-5">
+                <select name="province" class=" form-select" id="floatingProvince">
+                    <option value="" disabled selected hidden>Province / Territory</option>
+                    <option value="Alberta">Alberta</option>
+                    <option value="British Columbia">British Columbia</option>
+                    <option value="Manitoba">Manitoba</option>
+                    <option value="New Brunswick">New Brunswick</option>
+                    <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                    <option value="Northwest Territories">Northwest Territories</option>
+                    <option value="Nova Scotia">Nova Scotia</option>
+                    <option value="Nunavut">Nunavut</option>
+                    <option value="Ontario">Ontario</option>
+                    <option value="Prince Edward Island">Prince Edward Island</option>
+                    <option value="Quebec">Quebec</option>
+                    <option value="Saskatchewan">Saskatchewan</option>
+                    <option value="Yukon">Yukon</option>
+                </select>
+                <label for="floating-province">Province / Territory</label>
+            </div>
+            <div class="form-floating col-md-3">
+                <input type="text" name="postalcode" class="form-control" id="floatingPostal" placeholder="T3Y 0A0">
+                <label for="floatingPostal">Postal Code</label>
+            </div>
+            <div class="form-floating col-md-12">
+                <textarea name="feedback" class="form-control" id="floatingFeedback"></textarea>
+                <label for="floatingFeedback">Feedback</label>
+                <div class="form-text" id="feedbackText">Please provide feedback on your visit today! - 300 characters</div>
+            </div>
+            <div class="row justify-content-center gap-2 pt-4">
+                <button type="submit" class="btn btn-primary btn-lg col-md-3">Submit</button>
+                <button type="reset" class="btn btn-secondary btn-lg col-md-3">Reset</button>
+            </div>
+        </form>
+    </div>
+    <hr>
+    <h1 class="text-center py-2">User Feedback</h1>
+    <div class="container">
+        <ul>
+            <div class="row">
+                <% contacts.forEach(contact => { %>
+                    <li class="list-unstyled pb-4 col-md-4">
+                        <%= contact.firstname + " " + contact.lastname + " said: '" + contact.feedback + "'" %>
+                        <br>
+                        <%= "Email: " + contact.email %>
+                        <br>
+                        <a href="/edit-contact/<%= contact.id %>"><button class="btn btn-info">Update</button></a>
+                        <a href="/delete-contact/<%= contact.id %>"><button class="btn btn-warning text-danger">Delete</button></a>
+                    </li>
+                <% }) %>
+            </div>
+        </ul>
+    </div>
+
+<%- include("includes/footer.ejs") %>

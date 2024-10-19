@@ -1,0 +1,36 @@
+<!-- 
+Author: Ryan Angaangan
+Student ID: 000783037
+Date: October 17, 2024
+Course: CPRG 210 - Web Application Development
+Assignment: Node.js 
+-->
+
+<%- include("includes/header.ejs") %>
+
+    <!-- Bootstrap Jumbotron -->
+    <div class="container">
+        <div class="pt-5 text-center">
+            <img src="/img/main.jpg" alt="bread" height="250px">
+            <h1 class="text-body-emphasis pt-3">The Bread Site</h1>
+
+            <!-- Random greeting is passed from the Node module and displayed in this p tag -->
+            <p class="col-lg-8 mx-auto fs-5"><%= greetText %></p>
+
+            <p class="col-lg-8 mx-auto fs-5 text-muted">On this site you will find information about bread.</p>
+            <div class="d-inline-flex gap-2">
+                <a href="/about">
+                    <button class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill" type="button">
+                    Learn More
+                    </button>
+                </a>
+                <a href="/contact-us">
+                    <button class="btn btn-outline-secondary btn-lg px-4 rounded-pill" type="button">
+                    Contact Us
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+<%- include("includes/footer.ejs") %>
