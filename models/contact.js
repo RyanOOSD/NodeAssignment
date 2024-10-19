@@ -49,4 +49,5 @@ const Contact = sequelize.define("contacts",{
     timestamps: false
 });
 
+// Export the model
 module.exports = Contact;

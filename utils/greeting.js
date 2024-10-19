@@ -6,6 +6,7 @@ Course: CPRG 210 - Web Application Development
 Assignment: Node.js
 */
 
+// Define greetings in an array
 let greetingList = [
     "Welcome to 'The Bread Site!'",
     "Greetings, this is The Bread Site!",
@@ -19,6 +20,7 @@ let greetingList = [
     "¡Buen día, has encontrado El Sitio del Pan!"
 ];
 
+// Exporrt module as a function to get a random greeting from the array
 module.exports = {
     get randomGreeting() {
         return greetingList[Math.floor(Math.random() * 9) + 1];

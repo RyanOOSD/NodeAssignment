@@ -12,6 +12,8 @@ Assignment: Node.js
     <p class="text-center">Please input your contact details below, and we will get in contact with you shortly!</p>
     <p class="text-center">Feel free to browse our site feedback from our users below the form!</p>
     <div class="container pb-3">
+
+        <!-- Form calls client-side validation script when it is submitted -->
         <form action="/add-contact" method="POST" onsubmit="return formValidation()" class="row g-0 needs-validation">
             <div class="form-floating col-md-6">
                 <input type="text" name="firstname" class="form-control" id="floatingFirst" placeholder="John">
@@ -68,6 +70,7 @@ Assignment: Node.js
         </form>
     </div>
     <hr>
+    <!-- Lists contact's names, emails and their feedback from the database on the page -->
     <h1 class="text-center py-2">User Feedback</h1>
     <div class="container">
         <ul>
